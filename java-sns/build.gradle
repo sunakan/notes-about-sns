@@ -15,8 +15,15 @@ dependencies {
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.2'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.5.2'
+    // https://mvnrepository.com/artifact/software.amazon.awssdk/sns
+    testCompile group: 'software.amazon.awssdk', name: 'sns', version: '2.10.1'
 }
 
 test {
-    useJUnitPlatform()
+    testLogging {
+        events 'standard_out', 'standard_error'
+    }
+    useJUnitPlatform {
+        includeEngines 'junit-jupiter'
+    }
 }

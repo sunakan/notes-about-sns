@@ -14,3 +14,9 @@ services:
         GRADLE_VERSION: ${GRADLE_VERSION}
     volumes:
       - ./java-sns:/home/gradle/java-sns
+    environment:
+      SNS_ENDPOINT: "http://sns:9911"
+      AWS_ACCESS_KEY_ID: "dummy"
+      AWS_SECRET_ACCESS_KEY: "dummy"
+    links:
+      - sns

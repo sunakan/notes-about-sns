@@ -10,11 +10,14 @@ up:
 down:
 	docker-compose down
 
-bash:
+ash:
 	docker-compose exec sns ash
+bash:
+	docker-compose exec java bash
 
 test:
-	docker-compose exec -u gradle java ./gradlew test
+	docker-compose exec -u gradle java ./gradlew test --rerun-tasks
+	docker-compose exec sns cat /tmp/sns.log
 
 topics:
 	aws sns --endpoint-url http://localhost:9911 list-topics
