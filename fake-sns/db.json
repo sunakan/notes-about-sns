@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "timestamp": 1465414804110,
+  "subscriptions": [
+    {
+      "arn": "6df4ed2b-a650-4f7c-910a-1a89c7cae5a6",
+      "topicArn": "arn:aws:sns:ap-northeast-1:1465414804035:test1",
+      "endpoint": "file://tmp?fileName=sns.log",
+      "owner": "",
+      "protocol": "file"
+    }
+  ],
+  "topics": [
+    {
+      "arn": "arn:aws:sns:ap-northeast-1:1465414804035:test1",
+      "name": "test1"
+    }
+  ]
+}

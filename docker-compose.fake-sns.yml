@@ -1,0 +1,15 @@
+---
+
+version: "3.7"
+
+services:
+  sns:
+    build:
+      context: .
+      dockerfile: Dockerfile.fake-sns
+      args:
+        FAKE_SNS_VERSION: ${FAKE_SNS_VERSION}
+    ports:
+      - "9911:9911"
+    volumes:
+      - ./fake-sns/db.json:/etc/sns/db.json
