@@ -1,0 +1,16 @@
+---
+
+version: "3.7"
+
+services:
+  java:
+    working_dir: /home/gradle/java-sns
+    command: bash
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile.java
+      args:
+        GRADLE_VERSION: ${GRADLE_VERSION}
+    volumes:
+      - ./java-sns:/home/gradle/java-sns

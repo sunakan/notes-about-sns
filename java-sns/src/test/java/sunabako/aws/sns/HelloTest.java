@@ -8,6 +8,6 @@ class HelloTest {
     @Test
     void helloTest() {
         System.out.println("HelloWorld!!");
-        assertEquals("HelloWorld", "HelloWorld");
+        assertEquals("1", "HelloWorld");
     }
 }
