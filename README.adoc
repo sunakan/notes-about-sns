@@ -1,0 +1,29 @@
+== AWS SNSにtopicを事前作成して、publishするまで
+
+----
+$ make up
+$ make test
+docker-compose exec -u gradle java ./gradlew test --rerun-tasks
+
+> Task :test
+
+sunabako.aws.sns.SnsTest > client() STANDARD_ERROR
+    SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+    SLF4J: Defaulting to no-operation (NOP) logger implementation
+    SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
+sunabako.aws.sns.SnsTest > publish() STANDARD_OUT
+    ===========
+    16fc51c9-292c-4361-ba9b-20b4f2a01d06
+    ===========
+
+sunabako.aws.sns.HelloTest > helloTest() STANDARD_OUT
+    HelloWorld!!
+
+BUILD SUCCESSFUL in 4s
+3 actionable tasks: 3 executed
+docker-compose exec sns cat /tmp/sns.log
+{"MessageId":"16fc51c9-292c-4361-ba9b-20b4f2a01d06","Message":"Hello by JUnit","Type":"Notification"}
+----
+
+* SLF4Jは無視する
